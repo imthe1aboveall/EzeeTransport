@@ -14,7 +14,7 @@ $paytmParams["body"] = $_POST;
 * Generate checksum by parameters we have in body
 * Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys
 */
-$checksum = PaytmChecksum::generateSignature(json_encode($paytmParams["body"], JSON_UNESCAPED_SLASHES), "jffple1T#4%Zo4hY");
+$checksum = PaytmChecksum::generateSignature(json_encode($paytmParams["body"], JSON_UNESCAPED_SLASHES), "ZtazV%3c8E2X7qo!");
 
 $paytmParams["head"] = array(
     "signature"    => $checksum
@@ -23,11 +23,11 @@ $paytmParams["head"] = array(
 $post_data = json_encode($paytmParams, JSON_UNESCAPED_SLASHES);
 
 /* for Staging */
-    $url = "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction?mid=QWpFTo77370752432634&orderId=";
+    $url = "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction?mid=Qvlatd29162590487051&orderId=";
 
 
 /* for Production */
-// $url = "https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=QWpFTo77370752432634&orderId=";
+// $url = "https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=Qvlatd29162590487051&orderId=";
     
 $url .= $_POST["orderId"];
 
